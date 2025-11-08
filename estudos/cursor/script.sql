@@ -54,5 +54,13 @@ BEGIN
 END;
 /
 
-Vinicius Ferreira Ulisses Costa
-Gabrielle Ulisses Silva Costa
+BEGIN
+    FOR r_emp IN (
+        SELECT employee_id, first_name, salary
+        FROM employees
+        WHERE department_id = 50
+    ) LOOP
+    DBMS_OUTPUT.PUT_LINE(r_emp.employee_id || ' - ' || r_emp.first_name
+    || ' - ' || r_emp.salary);
+    END LOOP;
+END;
